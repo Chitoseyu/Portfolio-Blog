@@ -1,16 +1,13 @@
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "@/app/styles/globals.css";
+import { notFound } from "next/navigation";
+import "@/styles/globals.css";
+import NavLink from "@/components/nav-link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const navLinks = [
+  {name:"🏠 首頁",href:"/"},
+  {name:"📁 關於我",href:"/aboutbulit"},
+];
 
 export const metadata: Metadata = {
   title: "Ren-Portfolio",
@@ -23,10 +20,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html>
+      <body>
+        <nav>
+          {navLinks.map((link)=>{
+            return (
+              <NavLink className="nav-link" href={link.href} key={link.name} exact>
+                  {link.name}
+              </NavLink>
+            )
+          })}
+        </nav>
         {children}
       </body>
     </html>
