@@ -1,12 +1,12 @@
 
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import "@/styles/globals.css";
 import NavLink from "@/components/nav-link";
 
 const navLinks = [
   {name:"🏠 首頁",href:"/"},
-  {name:"📁 關於我",href:"/aboutbulit"},
+  {name:"📁 關於我",href:"/about"},
+  {name:"🏆 專案經歷",href:"/projects"},
 ];
 
 export const metadata: Metadata = {
@@ -32,7 +32,11 @@ export default function RootLayout({
           })}
         </nav>
         {children}
+        <footer className="mt-2 flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">
+            Copyright ©  2025 🐤 Ren
+        </footer>
       </body>
+
     </html>
   );
 }

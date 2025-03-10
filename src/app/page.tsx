@@ -5,25 +5,19 @@ export default function Home() {
     <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
       <header className="text-center my-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-          Portfolio by Ren
+          Ren 's 作品集
         </h1>
       </header>
 
       <main className="flex flex-col items-center gap-8 max-w-2xl text-center">
         <Image
           className="dark:invert"
-          src="/Author.jpg"
+          src="/home_img.png"
           alt="Portfolio logo"
-          width={300}
-          height={40}
+          width={500}
+          height={500}
           priority
         />
-        <a 
-          href="/projects" 
-          className="text-lg font-medium text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
-        >
-          🏆 專案經歷 →
-        </a>
       </main>
 
       <footer className="mt-12 flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">

@@ -9,7 +9,7 @@ export default function NotFoundRoot() {
                   src="/err_cat.png"
                   alt="Portfolio logo"
                   width={300}
-                  height={40}
+                  height={300}
                   priority
                 />
         <h1 className="err_h1">
