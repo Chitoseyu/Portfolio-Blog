@@ -14,7 +14,7 @@ export default function About() {
       <main className="flex flex-col items-center gap-8 max-w-2xl text-center">
         <Image
           className="rounded-full border-4 border-gray-300 dark:border-gray-700"
-          src="/author.jpg"
+          src="/author.png"
           alt="Author's profile picture"
           width={300}
           height={300}
