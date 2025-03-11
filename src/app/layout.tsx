@@ -6,7 +6,7 @@ import NavLink from "@/components/nav-link";
 const navLinks = [
   {name:"🏠 首頁",href:"/"},
   {name:"📁 關於我",href:"/about"},
-  {name:"🏆 專案經歷",href:"/projects"},
+  {name:"🛠️ 專案經歷",href:"/projects"},
 ];
 
 export const metadata: Metadata = {

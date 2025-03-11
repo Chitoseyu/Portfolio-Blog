@@ -34,7 +34,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          日常Blog
+          Blog
         </a>
         <a
           className="flex items-center gap-2 hover:underline"
