@@ -2,28 +2,59 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
-      <header className="text-center my-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-          Hi, I'm Ren! 
-        </h1>
+    <div className="about-container">
+      <header className="about-header">
+        <h1 className="about-title">👋 Hi, I'm Ren!</h1>
       </header>
-      
-      <main className="flex flex-col items-center gap-8 max-w-2xl text-center">
+
+      <main className="about-main">
         <Image
-          className="rounded-full border-4 border-gray-300 dark:border-gray-700"
+          className="about-image"
           src="/author.png"
           alt="Author's profile picture"
           width={300}
           height={300}
         />
-        <p className="text-lg text-gray-700 dark:text-gray-300">
-          虎尾科技大學資訊工程系 畢業 <br/>
-          2 年多的網頁開發經驗，前後端都有所涉獵 <br/>
-          <br/>
-          主要展示自己開發的 <b>Side Project</b> <br/>
+        <p className="about-description">
+          我是一名熱愛探索新技術的軟體工程師，喜歡挑戰不同類型的開發專案。<br />
+          我擅長 <b>系統開發、數據處理與前後端整合</b>，致力於提升使用者體驗與系統效能。 <br />
+          <br />
+          🔗 歡迎與我交流，一起探索技術的可能！ <br />
+          
         </p>
-      
+
+        <div className="social-links">
+            <a
+              className="social-link"
+              href="https://chitoseyu.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="social-icon"
+                src="/globe.svg"
+                alt="Globe icon"
+                width={16}
+                height={16}
+              />
+              Blog
+            </a>
+            <a
+              className="social-link"
+              href="https://github.com/chitoseyu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="social-icon"
+                src="/github-mark.png"
+                alt="GitHub icon"
+                width={16}
+                height={16}
+              />
+              GitHub
+            </a>
+        </div>
       </main>
     </div>
   );

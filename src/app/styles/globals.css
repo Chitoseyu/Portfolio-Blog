@@ -46,11 +46,23 @@ body {
   color: #6366f1; 
 }
 
-/* active 狀態 */
 .nav-link.active {
   background-color: #e0e7ff; 
   color: #4f46e5; 
 }
+.footer {
+  margin-top: 0.5rem; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #4b5563; 
+}
+.footer.dark-mode {
+  color: #9ca3af;
+}
+
+/* 錯誤頁面 自訂樣式 Start */
 .err_btn {
   display: inline-flex;
   height: 2.5rem; 
@@ -79,8 +91,6 @@ body {
   pointer-events: none;
   opacity: 0.5;
 }
-
-/* 深色模式 */
 .err_btn.dark-mode {
   background-color: #f9fafb;
   color: #111827;
@@ -99,7 +109,6 @@ body {
   color: #374151;
 }
 
-/* 深色模式 */
 .err_text.dark-mode {
   color: #d1d5db; 
 }
@@ -108,8 +117,6 @@ body {
   font-weight: 700; 
   color: #111827;
 }
-
-/* 深色模式 */
 .err_h1.dark-mode {
   color: #f3f4f6;
 }
@@ -122,11 +129,10 @@ body {
   min-height: 100vh;
   background-color: #f3f4f6;
 }
-
-/* 深色模式 */
 .err_div.dark-mode {
   background-color: #111827;
 }
+/* 錯誤頁面 自訂樣式 End */
 
 /* 專案經歷 自訂樣式 Start */
 .header {
@@ -138,6 +144,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   color: #111827;
+  margin-bottom: 1.5rem;
 }
 
 .grid-layout {
@@ -278,41 +285,159 @@ body {
   border-radius: 0.375rem;
   transition: background-color 0.2s;
 }
-
 .modal-close:hover {
   background-color: #4338ca;
 }
 
-.work-section {
+/* 專案經歷 自訂樣式 End */
+
+/* 工作經歷 自訂樣式 Start */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   max-width: 80rem;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: #d1d5db;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  margin-top: 3rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-content {
+  min-width: 100%;
+  min-height: 8rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  text-align: center;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: center;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .work-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 1rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.work-item {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+.work-item-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
 }
 
-.work-item-title {
-  font-size: 1.875rem;
+.work-item-description {
+  color: #374151;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+/* 工作經歷 自訂樣式 End */
+
+/* About 頁面樣式 Start*/
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+}
+
+.about-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.about-title {
+  font-size: 3rem;
   font-weight: 700;
   color: #111827;
 }
 
-.work-item-description {
-  color: #4b5563;
-  margin-top: 0.5rem;
+.about-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 40rem;
+  text-align: center;
 }
-/* 專案經歷 自訂樣式 End */
+
+.about-image {
+  border-radius: 50%;
+  border: 4px solid #d1d5db;
+  width: 400px;
+  height: 400px;
+}
+
+.about-description {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+  color: #4338ca;
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+}
+/* About 頁面樣式 End*/

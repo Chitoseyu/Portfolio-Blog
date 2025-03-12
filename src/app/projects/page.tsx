@@ -64,15 +64,6 @@ export default function Project() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
-      {/* <section className="work-section">
-        <h2 className="work-title">💼 Work Project</h2>
-        {workProjects.map((work, index) => (
-          <div key={index} className="work-item">
-            <h3 className="work-item-title">{work.title}</h3>
-            <p className="work-item-description">{work.description}</p>
-          </div>
-        ))}
-      </section> */}
       <header className="header">
         <h1 className="header-title">📝 Side Project</h1>
       </header>

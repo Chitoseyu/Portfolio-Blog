@@ -5,8 +5,9 @@ import NavLink from "@/components/nav-link";
 
 const navLinks = [
   {name:"🏠 首頁",href:"/"},
-  {name:"📁 關於我",href:"/about"},
-  {name:"🛠️ 專案經歷",href:"/projects"},
+  {name:"📁 關於",href:"/about"},
+  {name:"📝 專案",href:"/projects"},
+  {name:"💼 經歷",href:"/experience"},
 ];
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({
           })}
         </nav>
         {children}
-        <footer className="mt-2 flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">
+        <footer className="footer">
             Copyright ©  2025 🐤 Ren
         </footer>
       </body>
