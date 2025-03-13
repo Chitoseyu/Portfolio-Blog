@@ -62,75 +62,79 @@ body {
   color: #9ca3af;
 }
 
-/* 錯誤頁面 自訂樣式 Start */
-.err_btn {
-  display: inline-flex;
-  height: 2.5rem; 
+/* Home 頁面樣式  Start */
+.home-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 0.375rem; 
-  background-color: #111827; 
-  padding-left: 2rem; 
-  padding-right: 2rem; 
-  font-size: 1rem;
-  font-weight: 500;
-  color: #f9fafb; 
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.2s ease-in-out;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
 }
 
-.err_btn:hover {
-  background-color: rgba(17, 24, 39, 0.9); 
+.home-header {
+  text-align: center;
+  margin: 2rem 0;
 }
 
-.err_btn:focus-visible {
-  outline: none;
-}
-
-.err_btn:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-.err_btn.dark-mode {
-  background-color: #f9fafb;
+.home-title {
+  font-size: 3rem;
+  font-weight: 700;
   color: #111827;
 }
 
-.err_btn.dark-mode:hover {
-  background-color: rgba(249, 250, 251, 0.9); 
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 40rem;
+  text-align: center;
 }
 
-.err_btn.dark-mode:focus-visible {
-  ring: 1px solid #d1d5db; 
+.home-image {
+  filter: invert(0);
 }
-.err_text {
+
+.dark .home-image {
+  filter: invert(1);
+}
+
+/* Home 頁面樣式  End */
+/* 錯誤頁面 自訂樣式 Start */
+.err_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   text-align: center;
+  background-color: #f3f4f6;
+}
+
+.err_h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.err_text {
   font-size: 2rem;
   color: #374151;
 }
 
-.err_text.dark-mode {
-  color: #d1d5db; 
+.err_btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
 }
-.err_h1 {
-  font-size: 3rem; 
-  font-weight: 700; 
-  color: #111827;
-}
-.err_h1.dark-mode {
-  color: #f3f4f6;
-}
-.err_div {
-  display: flex;
-  flex-direction: column;
-  text-align:center;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f3f4f6;
-}
-.err_div.dark-mode {
-  background-color: #111827;
+
+.err_btn:hover {
+  background-color: #4338ca;
 }
 /* 錯誤頁面 自訂樣式 End */
 
@@ -287,6 +291,23 @@ body {
 }
 .modal-close:hover {
   background-color: #4338ca;
+}
+.github-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #333;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.github-button:hover {
+  background-color: #555;
 }
 
 /* 專案經歷 自訂樣式 End */

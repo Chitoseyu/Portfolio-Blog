@@ -1,24 +1,40 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
-      <header className="text-center my-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-          Ren 's 作品集
-        </h1>
-      </header>
+    <motion.div
+      className="home-container"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.header
+        className="home-header"
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        <h1 className="home-title">Ren 's 作品集</h1>
+      </motion.header>
 
-      <main className="flex flex-col items-center gap-8 max-w-2xl text-center">
+      <motion.main
+        className="home-content"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+      >
         <Image
-          className="dark:invert"
+          className="home-image"
           src="/home_img.png"
           alt="Portfolio logo"
           width={500}
           height={500}
           priority
         />
-      </main>
-    </div>
+      </motion.main>
+    </motion.div>
   );
 }

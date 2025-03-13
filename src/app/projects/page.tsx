@@ -12,6 +12,7 @@ const projects = [
       { src: "/project1/prj_cover.png", description: "紀錄開發經驗的文章" },
       { src: "/project1/total_view.png", description: "整體設計" },
     ],
+    github: "https://github.com/Chitoseyu/Chitoseyu.github.io",
   },
   {
     title: "Discord群組 Bot（JavaScript）",
@@ -31,12 +32,7 @@ const projects = [
       { src: "/project2/sayd1.png", description: "工人智慧" },
 
     ],
-  },
-];
-const workProjects = [
-  {
-    title: "...",
-    description: "...",
+    github: "https://github.com/Chitoseyu/js-dicord-bot",
   },
 ];
 
@@ -75,28 +71,26 @@ export default function Project() {
             className="card"
             onClick={() => setSelectedProject(project)}
           >
-          <div className="card-image-container">
-            <Image
-              className="card-image"
-              src={project.images[0].src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
+            <div className="card-image-container">
+              <Image
+                className="card-image"
+                src={project.images[0].src}
+                alt={project.title}
+                width={300}
+                height={300}
+              />
+            </div>
+            <h2 className="card-title">{project.title}</h2>
+            <p className="card-description">{project.description}</p>
           </div>
-          <h2 className="card-title">{project.title}</h2>
-          <p className="card-description">{project.description}</p>
-        </div>
-        ))}
+          ))}
       </section>
 
-      {/* Lightbox Modal */}
       <Dialog open={!!selectedProject} onClose={closeModal} className="modal-overlay">
         <Dialog.Panel className="modal-content">
 
           {selectedProject && (
             <>
-              {/* 圖片顯示區 */}
               <div className="image-container">
                 <Image
                    className={`rounded-md transition-transform duration-300 ${
@@ -123,6 +117,17 @@ export default function Project() {
                   <div className="modal-text">
                     <h2 className="modal-title">{selectedProject.title}</h2>
                     <p className="modal-description">{selectedProject.images[currentImageIndex].description}</p>
+
+                    {selectedProject.github && (
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-button"
+                      >
+                        GitHub
+                      </a>
+                    )}
                     <button className="modal-close" onClick={closeModal}>
                       關閉
                     </button>
