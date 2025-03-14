@@ -60,7 +60,7 @@ export default function Project() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
+    <div className="prj_div">
       <header className="header">
         <h1 className="header-title">📝 Side Project</h1>
       </header>

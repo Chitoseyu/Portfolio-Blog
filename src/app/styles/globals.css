@@ -137,6 +137,20 @@ body {
 /* 錯誤頁面 自訂樣式 End */
 
 /* 專案經歷 自訂樣式 Start */
+.prj_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .prj_div {
+    padding: 3rem;
+  }
+}
 .header {
   text-align: center;
   margin: 2rem 0;
