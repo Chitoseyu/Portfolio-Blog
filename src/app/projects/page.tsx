@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -66,23 +67,26 @@ export default function Project() {
 
       <section className="grid-layout">
         {projects.map((project, index) => (
-          <div
-            key={index}
-            className="card"
-            onClick={() => setSelectedProject(project)}
-          >
-            <div className="card-image-container">
-              <Image
-                className="card-image"
-                src={project.images[0].src}
-                alt={project.title}
-                width={300}
-                height={300}
-              />
-            </div>
-            <h2 className="card-title">{project.title}</h2>
-            <p className="card-description">{project.description}</p>
-          </div>
+            <motion.div
+                key={index}
+                className="card"
+                onClick={() => setSelectedProject(project)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="card-image-container">
+                  <Image
+                    className="card-image"
+                    src={project.images[0].src}
+                    alt={project.title}
+                    width={300}
+                    height={300}
+                  />
+                </div>
+                <h2 className="card-title">{project.title}</h2>
+                <p className="card-description">{project.description}</p>
+            </motion.div>
           ))}
       </section>
 
@@ -105,14 +109,17 @@ export default function Project() {
               </div>
 
               <div className="modal-navigation">
-                  <button
-                    className="nav-button"
-                    onClick={showPrevImage}
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                  </button>
+                {/* 上一張按鈕 - 若是第一張則隱藏 */}
+                {currentImageIndex > 0 && (
+                    <button
+                      className="nav-button"
+                      onClick={showPrevImage}
+                    >
+                      <svg className="icon-nav" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
+                      </svg>
+                    </button>
+                   )}
 
                   <div className="modal-text">
                     <h2 className="modal-title">{selectedProject.title}</h2>
@@ -132,15 +139,17 @@ export default function Project() {
                       關閉
                     </button>
                   </div>
-
-                  <button
-                    className="nav-button"
-                    onClick={showNextImage}
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
+                  
+                  {currentImageIndex < selectedProject.images.length - 1 && (
+                    <button
+                      className="nav-button"
+                      onClick={showNextImage}
+                    >
+                      <svg className="icon-nav" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </button>
+                   )}
                 </div>
             </>
           )}

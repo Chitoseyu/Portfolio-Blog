@@ -34,8 +34,6 @@ body {
 .nav-link {
   font-size: 2rem;
   font-weight: bold;
-  /* padding-left: 1rem !important;
-  padding-right: 1rem !important; */
   display: inline-flex;
   border-radius: 9999px;
   padding: 0.375rem 0.75rem;
@@ -216,13 +214,13 @@ body {
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 90vw;
-  max-width: 48rem;
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  min-width: 50vw;
+  min-height: 90vh;
+  overflow: auto;
 }
 
 .image-container {
@@ -309,10 +307,35 @@ body {
 .github-button:hover {
   background-color: #555;
 }
+.icon-nav {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
 
 /* 專案經歷 自訂樣式 End */
 
 /* 工作經歷 自訂樣式 Start */
+.work-experience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+}
+
+.dark .work-experience-container {
+  background-color: #1a202c;
+}
+
+@media (min-width: 640px) {
+  .work-experience-container {
+    padding: 3rem;
+  }
+}
 .timeline {
   display: flex;
   flex-direction: column;

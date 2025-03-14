@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 const workProjects = [
   {
     title: "成創永續股份有限公司：web開發工程師",
@@ -19,25 +22,31 @@ const workProjects = [
 
 export default function Experience() {
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-6 sm:p-12">
+    <div className="work-experience-container">
       <h2 className="work-title">💼 工作經歷</h2>
-      
-      <div className="timeline">
-        {workProjects.map((work, index) => (
-         <div key={index} className="timeline-item">
-          <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <h3 className="work-item-title">{work.title}</h3>
-              <ul className="work-item-description list-disc pl-5 text-left"> 
-                {work.description.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-              <span className="text-gray-500 text-sm mt-4">{work.date}</span>
-            </div>
+        <div className="timeline">
+          {workProjects.map((work, index) => (
+            <motion.div
+              key={index}
+              className="timeline-item"
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <h3 className="work-item-title">{work.title}</h3>
+                <ul className="work-item-description list-disc pl-5 text-left">
+                  {work.description.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+                <span className="text-gray-500 text-sm mt-4">{work.date}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        ))}
-      </div>
     </div>
   );
 }
