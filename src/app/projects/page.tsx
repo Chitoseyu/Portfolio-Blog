@@ -41,6 +41,7 @@ export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
   const closeModal = () => {
     setSelectedProject(null);
@@ -57,6 +58,17 @@ export default function Project() {
     if (selectedProject) {
       setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
     }
+  };
+  const handleZoom = (e) => {
+    if (!isZoomed) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+  
+      document.documentElement.style.setProperty("--zoom-origin-x", `${x * 100}%`);
+      document.documentElement.style.setProperty("--zoom-origin-y", `${y * 100}%`);
+    }
+    setIsZoomed(!isZoomed);
   };
 
   return (
@@ -97,14 +109,12 @@ export default function Project() {
             <>
               <div className="image-container">
                 <Image
-                   className={`rounded-md transition-transform duration-300 ${
-                    isZoomed ? "scale-150" : "scale-100"
-                  } object-contain max-h-[60vh] max-w-full cursor-zoom-in`}
+                  className={`zoomable-image ${isZoomed ? "zoomed" : ""}`}
                   src={selectedProject.images[currentImageIndex].src}
                   alt={selectedProject.title}
                   width={800}
                   height={600}
-                  onClick={() => setIsZoomed(!isZoomed)} // 點擊切換放大狀態
+                  onClick={handleZoom}
                 />
               </div>
 
