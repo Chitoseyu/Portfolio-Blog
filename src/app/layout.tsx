@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import NavLink from "@/components/nav-link";
+import GA4Tracker from "@/components/GA4Tracker";
 
 const navLinks = [
   {name:"🏠 首頁",href:"/"},
@@ -22,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
+      <head>
+        <GA4Tracker />
+      </head>
       <body>
         <nav>
           {navLinks.map((link)=>{
