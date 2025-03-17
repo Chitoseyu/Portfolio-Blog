@@ -12,6 +12,8 @@ const projects = [
     images: [
       { src: "/project1/prj_cover.png", description: "紀錄開發經驗的文章" },
       { src: "/project1/total_view.png", description: "整體設計" },
+      { src: "/project1/article_search.png", description: "文章全站搜尋" },
+      { src: "/project1/article_content.png", description: "文章內容樣式" },
     ],
     github: "https://github.com/Chitoseyu/Chitoseyu.github.io",
   },
@@ -119,47 +121,48 @@ export default function Project() {
               </div>
 
               <div className="modal-navigation">
-                {/* 上一張按鈕 - 若是第一張則隱藏 */}
-                {currentImageIndex > 0 && (
-                    <button
-                      className="nav-button"
-                      onClick={showPrevImage}
-                    >
-                      <svg className="icon-nav" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
-                      </svg>
-                    </button>
-                   )}
+                  {/* 上一張按鈕 - 若是第一張則不可點擊 */}
+                  <button
+                    className="nav-button"
+                    onClick={showPrevImage}
+                    disabled={currentImageIndex === 0}
+                  >
+                    <svg className="icon-nav" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                  </button>
 
                   <div className="modal-text">
                     <h2 className="modal-title">{selectedProject.title}</h2>
                     <p className="modal-description">{selectedProject.images[currentImageIndex].description}</p>
 
-                    {selectedProject.github && (
-                      <a
-                        href={selectedProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="github-button"
-                      >
-                        GitHub
-                      </a>
-                    )}
-                    <button className="modal-close" onClick={closeModal}>
-                      關閉
-                    </button>
+                      <div className="modal-buttons">
+                        {selectedProject.github && (
+                          <a
+                            href={selectedProject.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="github-button"
+                          >
+                            GitHub
+                          </a>
+                        )}
+                        
+                        <button className="modal-close" onClick={closeModal}>
+                          Close
+                        </button>
+                      </div>
                   </div>
-                  
-                  {currentImageIndex < selectedProject.images.length - 1 && (
-                    <button
-                      className="nav-button"
-                      onClick={showNextImage}
-                    >
-                      <svg className="icon-nav" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
-                      </svg>
-                    </button>
-                   )}
+                  {/* 下一張按鈕 - 若是最後一張則不可點擊 */}
+                  <button
+                    className="nav-button"
+                    onClick={showNextImage}
+                    disabled={currentImageIndex === selectedProject.images.length - 1}
+                  >
+                    <svg className="icon-nav" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
                 </div>
             </>
           )}
