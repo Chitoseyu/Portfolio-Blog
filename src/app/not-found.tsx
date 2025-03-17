@@ -20,7 +20,7 @@ export default function NotFoundRoot() {
           transition={{ duration: 0.3 }}
         >
           <Image
-            className="dark:invert"
+            className="err_img"
             src="/err_cat.png"
             alt="error_page logo"
             width={300}

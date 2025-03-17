@@ -109,6 +109,13 @@ body {
   text-align: center;
   background-color: #f3f4f6;
 }
+.err_img {
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+}
 
 .err_h1 {
   font-size: 4rem;
