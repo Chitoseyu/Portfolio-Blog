@@ -43,7 +43,6 @@ export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
 
   const closeModal = () => {
     setSelectedProject(null);
@@ -52,13 +51,19 @@ export default function Project() {
 
   const showNextImage = () => {
     if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+      requestAnimationFrame(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+        setIsZoomed(false); // 切換時重置放大狀態
+      });
     }
   };
 
   const showPrevImage = () => {
     if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+      requestAnimationFrame(() => {
+        setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+        setIsZoomed(false); // 切換時重置放大狀態
+      });
     }
   };
   const handleZoom = (e) => {
@@ -71,6 +76,10 @@ export default function Project() {
       document.documentElement.style.setProperty("--zoom-origin-y", `${y * 100}%`);
     }
     setIsZoomed(!isZoomed);
+  };
+  const goToImage = (index) => {
+    setCurrentImageIndex(index);
+    setIsZoomed(false); // 切換時重置放大狀態
   };
 
   return (
@@ -111,6 +120,7 @@ export default function Project() {
             <>
               <div className="image-container">
                 <Image
+                  key={selectedProject.images[currentImageIndex].src}
                   className={`zoomable-image ${isZoomed ? "zoomed" : ""}`}
                   src={selectedProject.images[currentImageIndex].src}
                   alt={selectedProject.title}
@@ -119,6 +129,17 @@ export default function Project() {
                   onClick={handleZoom}
                 />
               </div>
+              {/* Pagination Dots */}
+              <div className="image-pagination">
+                {selectedProject.images.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`pagination-dot ${index === currentImageIndex ? "active" : ""}`}
+                    onClick={() => goToImage(index)}
+                  ></button>
+                ))}
+              </div>
+
 
               <div className="modal-navigation">
                   {/* 上一張按鈕 - 若是第一張則不可點擊 */}
