@@ -1,6 +1,6 @@
 # [🌐Ren-Portfolio](https://portfolio-blog-one-eta.vercel.app/)
 
-![nextJsVer](https://img.shields.io/badge/Next.js-15.2.1-blue)
+![nextJsVer](https://img.shields.io/badge/Next.js-15.2.7-blue)
 
 開發完成的 Side Project 的 整理
 
@@ -22,4 +22,9 @@ pnpm install
 安裝完啟動本地端
 ```bash
 pnpm dev
+```
+
+若套件需要更新則使用(會更新 package.json 和 pnpm-lock.yaml )
+```bash
+pnpm add 套件名稱@版本號
 ```
