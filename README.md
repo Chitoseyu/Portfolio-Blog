@@ -19,6 +19,10 @@ npm install -g pnpm
 ```bash
 pnpm install 
 ```
+查看目前安裝套件版本
+```bash
+pnpm list
+```
 安裝完啟動本地端
 ```bash
 pnpm dev
